@@ -21,6 +21,8 @@ import Text from 'components/Text'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Card from 'components/Card'
+import Input from 'components/Input'
+import Navbar from 'components/Navbar'
 
 const cardItems = [
   { heading: '24/7 Phone Support', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.' },
@@ -31,30 +33,41 @@ const cardItems = [
 class App extends React.Component {
   render () {
     return (
-      <P margin={'0 auto'} width={'80%'}>
-        <P cMargin={'2rem 1.5rem 0 0'}>
-          {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => (
-            <Heading size={size}>Building the Future</Heading>
-          ))}
+      <div>
+        <Navbar>
+          <FP justifyContent={'space-between'} padding={'1rem'} cMargin={'0 2rem'}>
+            <Input style={{width: '400px'}} placeholder={'Search for a flight'} />
+            <P inline cMargin={'0 1.5rem 0 0'}>
+              <Button variant="secondary" title="Cancel" />
+              <Button variant="primary" title="Place Order" />
+            </P>
+          </FP>
+        </Navbar>
+        <P margin={'5rem auto'} width={'80%'}>
+          <P cMargin={'2rem 1.5rem 0 0'}>
+            {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => (
+              <Heading size={size}>Building the Future</Heading>
+            ))}
+          </P>
+          <P margin={'3rem 0'} width={'450px'}>
+            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.</Text>
+          </P>
+          <P inline cMargin={'0 1.5rem 0 0'}>
+            <Button variant="primary" title="Start Now" />
+            <Button variant="secondary" title="Contact Us" />
+          </P>
+          <FP margin={'3rem 0'} cMargin={'1rem'}>
+            {cardItems.map((c, i) => (
+              <Card key={i}>
+                <P inline margin={'2rem'} cPadding={'0 0 3rem 0'}>
+                  <Heading size={'sm'}>{c.heading}</Heading>
+                  <Text>{c.desc}</Text>
+                </P>
+              </Card>
+            ))}
+          </FP>
         </P>
-        <P margin={'3rem 0'} width={'450px'}>
-          <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.</Text>
-        </P>
-        <P inline cMargin={'0 1.5rem 0 0'}>
-          <Button variant="primary" title="Start Now" />
-          <Button variant="secondary" title="Contact Us" />
-        </P>
-        <FP margin={'3rem 0'} cMargin={'1rem'}>
-          {cardItems.map((c, i) => (
-            <Card key={i}>
-              <P inline margin={'2rem'} cPadding={'0 0 3rem 0'}>
-                <Heading size={'sm'}>{c.heading}</Heading>
-                <Text>{c.desc}</Text>
-              </P>
-            </Card>
-          ))}
-        </FP>
-      </P>
+      </div>
     )
   }
 }
