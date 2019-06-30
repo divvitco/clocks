@@ -16,21 +16,26 @@ Each of these components takes props which apply to the container, but they also
 import React from 'react'
 
 import P from 'components/P'
+import FP from 'components/FP'
 import Text from 'components/Text'
 import Button from 'components/Button'
 import Heading from 'components/Heading'
 import Card from 'components/Card'
 
+const cardItems = [
+  { heading: '24/7 Phone Support', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.' },
+  { heading: '50+ Years', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.' },
+  { heading: 'Free Shipping', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.' }
+]
+
 class App extends React.Component {
   render () {
     return (
-      <P margin={'0 auto'} width={'70%'}>
+      <P margin={'0 auto'} width={'80%'}>
         <P cMargin={'2rem 1.5rem 0 0'}>
-          <Heading size={'xs'}>Building the Future</Heading>
-          <Heading size={'sm'}>Building the Future</Heading>
-          <Heading size={'md'}>Building the Future</Heading>
-          <Heading size={'lg'}>Building the Future</Heading>
-          <Heading size={'xl'}>Building the Future</Heading>
+          {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => (
+            <Heading size={size}>Building the Future</Heading>
+          ))}
         </P>
         <P margin={'3rem 0'} width={'450px'}>
           <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.</Text>
@@ -39,14 +44,16 @@ class App extends React.Component {
           <Button variant="primary" title="Start Now" />
           <Button variant="secondary" title="Contact Us" />
         </P>
-        <P margin={'3rem 0'} width={'350px'}>
-          <Card>
-            <P inline margin={'2rem'} cPadding={'0 0 3rem 0'}>
-              <Heading size={'sm'}>24/7 Phone Support</Heading>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in massa maximus, commodo felis vel, ultricies erat. Donec laoreet metus eu ligula rutrum molestie.</Text>
-            </P>
-          </Card>
-        </P>
+        <FP margin={'3rem 0'} cMargin={'1rem'}>
+          {cardItems.map((c, i) => (
+            <Card key={i}>
+              <P inline margin={'2rem'} cPadding={'0 0 3rem 0'}>
+                <Heading size={'sm'}>{c.heading}</Heading>
+                <Text>{c.desc}</Text>
+              </P>
+            </Card>
+          ))}
+        </FP>
       </P>
     )
   }
