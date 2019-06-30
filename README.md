@@ -12,7 +12,7 @@ Each of these components takes props which apply to the container, but they also
 
 ![Example](https://raw.githubusercontent.com/overlay-labs/clocks/master/example.png)
 
-```
+```javascript
 import React from 'react'
 
 import P from 'components/P'
