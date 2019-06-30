@@ -8,6 +8,8 @@ export default function P({
   height,
   margin,
   padding,
+  cWidth,
+  cHeight,
   cMargin,
   cPadding
 }) {
@@ -21,6 +23,8 @@ export default function P({
   }
   const childStyles = {
     ...display,
+    width: cWidth,
+    height: cHeight,
     margin: cMargin,
     padding: cPadding
   }

@@ -8,10 +8,11 @@ export default function FP({
   height,
   margin,
   padding,
+  cWidth,
+  cHeight,
   cMargin,
   cPadding
 }) {
-  const display = { display: inline ? 'inline-block' : 'block' }
   const containerStyles = {
     display: 'flex',
     width,
@@ -20,7 +21,9 @@ export default function FP({
     padding
   }
   const childStyles = {
-    ...display,
+    flex: '1',
+    width: cWidth,
+    height: cHeight,
     margin: cMargin,
     padding: cPadding
   }
