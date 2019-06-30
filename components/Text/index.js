@@ -4,9 +4,10 @@ import { TextSpan, TextDiv } from './styled'
 export default function Text({
   children,
   inline,
-  fontWeight
+  fontSize = '1.6rem'
 }) {
   const Tag = inline ? TextSpan : TextDiv
+  const styles = { fontSize }
 
-  return <Tag>{children}</Tag>
+  return <Tag style={styles}>{children}</Tag>
 }

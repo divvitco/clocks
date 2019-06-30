@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 /** @component */
-export const Container = styled.div`
+export const Container = styled.div.attrs(props => props.style || {})`
   display: inline-block;
   height: 4rem;
   line-height: 4rem;
@@ -22,8 +22,4 @@ export const Container = styled.div`
   &:active {
     transform: translateY(0);
   }
-
-  color: #fff;
-  background: #3ecf8e;
-  text-shadow: 0 1px 3px rgba(36,180,126,.4);
 `
