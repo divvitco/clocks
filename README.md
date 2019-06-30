@@ -10,6 +10,8 @@ This repo serves as an experimental playground for React component building bloc
 
 Each of these components takes props which apply to the container, but they also take props which are mapped down to each of the `children`. These special props are prepended with `c`. For example, `<P margin={'0 auto'} cMargin={'1rem'}>` will apply a `margin` of `0 auto` to the container and a `1rem` margin to each of its children.
 
+![Example](https://raw.githubusercontent.com/github.com/overlay-labs/clocks/master/example.png)
+
 ```
 import React from 'react'
 
