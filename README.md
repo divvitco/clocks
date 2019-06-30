@@ -1,4 +1,14 @@
+## What is this?
+
 This repo serves as an experimental playground for React component building blocks. I'm interested in building out UI components which have _zero positioning, placement or sizing_ and instead create higher-order components based on the CSS box model, flexbox and grids spec. These higher-order components enable seamless placement and positioning of components. Below is an example where the `P` utility component handles all placement of the components.
+
+## Positioning Components
+
+- `P` - used for standard positioning with widths, heights, margins & padding
+- `FP` - used for flexbox positioning
+- `GP` - used for grid positioning
+
+Each of these components takes props which apply to the container, but they also take props which are mapped down to each of the `children`. These special props are prepended with `c`. For example, `<P margin={'0 auto'} cMargin={'1rem'}>` will apply a `margin` of `0 auto` to the container and a `1rem` margin to each of its children.
 
 ```
 import React from 'react'
