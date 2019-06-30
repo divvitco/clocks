@@ -4,10 +4,13 @@ import { configurations } from './../theme.js'
 export default function FP({
   children,
   inline = false,
+  alignItems,
+  justifyContent,
   width,
   height,
   margin,
   padding,
+  cFlex,
   cWidth,
   cHeight,
   cMargin,
@@ -15,13 +18,15 @@ export default function FP({
 }) {
   const containerStyles = {
     display: 'flex',
+    alignItems,
+    justifyContent,
     width,
     height,
     margin,
     padding
   }
   const childStyles = {
-    flex: '1',
+    flex: cFlex,
     width: cWidth,
     height: cHeight,
     margin: cMargin,
