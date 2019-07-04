@@ -1,38 +1,30 @@
 import React from 'react'
 import { configurations } from './../theme.js'
 
+const toArr = itm => Array.isArray(itm) ? itm : [itm]
+
 export default function P({
   children,
   inline = false,
-  width,
-  height,
-  margin,
-  padding,
-  cWidth,
-  cHeight,
-  cMargin,
-  cPadding
+  style,
+  cStyle
 }) {
   const display = { display: inline ? 'inline-block' : 'block' }
-  const containerStyles = {
-    ...display,
-    width,
-    height,
-    margin,
-    padding
-  }
-  const childStyles = {
-    ...display,
-    width: cWidth,
-    height: cHeight,
-    margin: cMargin,
-    padding: cPadding
-  }
+  const containerStyles = { ...display, ...style }
+  const childStyles = toArr(children).map((c, i) => {
+    const style = { ...display, ...cStyle }
+
+    Object.keys(style).forEach(k => {
+      style[k] = toArr(style[k])[i] || toArr(style[k])[0]
+    })
+
+    return style
+  })
 
   return (
     <div style={containerStyles}>
-      {(Array.isArray(children) ? children : [children]).map((c, i) => {
-        return <div key={i} style={childStyles}>{c}</div>
+      {toArr(children).map((c, i) => {
+        return <div key={i} style={childStyles[i]}>{c}</div>
       })}
     </div>
   )
